@@ -2,19 +2,16 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/homepage/homepage.components';
-
-const SignInPage = () => (
-  <div>
-    <h1> Sign in Page </h1>
-  </div>
-)
+import RentPage from './pages/rent/rent.components.jsx';
+import Header from './components/header/header.components';
 
 function App() {
   return (
     <div>
+      <Header />
       <Switch>
         <Route exact path = '/' component = {HomePage} />
-        <Route exact path = '/signin' component = {SignInPage} />
+        <Route path = '/rent' component = {RentPage} />
       </Switch>
     </div>
   );   

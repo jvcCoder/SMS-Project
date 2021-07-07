@@ -10,18 +10,19 @@ class Directory extends React.Component {
       sections: [
         {
           title: "sign in",
-          imageUrl: "https://i.ibb.co/chSDM1z/scooter8.jpg",
+          imageUrl: "https://i.ibb.co/vXYJhHK/sign-in.jpg",
           size: "large",
           id: 1,
           linkUrl: "signin",
         },
         {
           title: "sign up",
-          imageUrl: "https://i.ibb.co/tbHBLbg/scooter4.jpg",
+          imageUrl: "https://i.ibb.co/7zBsqWp/sign-up.jpg",
           size: "large",
           id: 2,
           linkUrl: "",
         },
+        
         {
           title: "contact us",
           imageUrl: "https://i.ibb.co/LRTttrm/contact.jpg",
