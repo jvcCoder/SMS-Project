@@ -5,7 +5,8 @@ import HomePage from './pages/homepage/homepage.components';
 import RentPage from './pages/rent/rent.components.jsx';
 import Header from './components/header/header.components';
 import SignInPage from './pages/sign-in/sign-in.components';
-import { auth } from './firebase/firebase.utils';
+import SignUpPage from './pages/sign-up/sign-up.components';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 class App extends React.Component {
   constructor(){
@@ -19,10 +20,20 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount(){
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user })
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth){
+        const userRef = await createUserProfileDocument(userAuth);
 
-      console.log(user);
+        userRef.onSnapshot(onSnapshot => {
+          this.setState({
+            currentUser: {
+              id: onSnapshot.id,
+              ...onSnapshot.data()
+            }
+          });
+        });
+      }
+      this.setState({ currentUser: userAuth });
     });
   }
 
@@ -38,6 +49,7 @@ class App extends React.Component {
           <Route exact path = '/' component = {HomePage} />
           <Route path = '/rent' component = {RentPage} />
           <Route path = '/signin' component = {SignInPage} />
+          <Route path = '/signup' component = {SignUpPage} />
         </Switch>
       </div>
     );   
