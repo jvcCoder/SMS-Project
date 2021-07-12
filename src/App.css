@@ -1,6 +1,7 @@
 body{
     font-family: 'M PLUS Rounded 1c';
-    padding: 20px 60px;
+    padding: 5px 5px;
+    background-color: rgba(0, 0, 0, 0.904);
 }
 
 a {
