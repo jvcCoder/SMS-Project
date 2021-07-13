@@ -3,20 +3,22 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: "AIzaSyCCqUaqUaSpRtLShd2Tyi5PuphF94YhzmQ",
-  authDomain: "sms-project-bc027.firebaseapp.com",
-  projectId: "sms-project-bc027",
-  storageBucket: "sms-project-bc027.appspot.com",
-  messagingSenderId: "326980295665",
-  appId: "1:326980295665:web:043573641c35a1106c4250",
+  apiKey: 'AIzaSyCCqUaqUaSpRtLShd2Tyi5PuphF94YhzmQ',
+  authDomain: 'sms-project-bc027.firebaseapp.com',
+  projectId: 'sms-project-bc027',
+  storageBucket: 'sms-project-bc027.appspot.com',
+  messagingSenderId: '326980295665',
+  appId: '1:326980295665:web:043573641c35a1106c4250',
   measurementId: "G-6BPNDZG0JJ",
 };
+
+firebase.initializeApp(config);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if(!userAuth) return;
 
   const userRef = firestore.doc(`users/${userAuth.uid}`);
-  const snapShot = await userRef.get()
+  const snapShot = await userRef.get();
 
   if(!snapShot.exists){
     const { displayName, email } = userAuth;
@@ -28,15 +30,13 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         email,
         createDat,
         ...additionalData
-      })
+      });
     }catch (error){
         console.log ('error creating user', error.message);
     }
   }
   return userRef;
-}
-
-firebase.initializeApp(config);
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
