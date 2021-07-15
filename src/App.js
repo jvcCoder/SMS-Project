@@ -22,7 +22,7 @@ class App extends React.Component {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot((snapShot) => {
+        userRef.onSnapshot(snapShot => {
           setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
@@ -55,7 +55,17 @@ class App extends React.Component {
               )
             }
           />
-          <Route path='/signup' component={SignUpPage} />
+          <Route 
+            exact 
+            path='/signup' 
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to='/' />
+              ) : (
+                <SignUpPage />
+              )
+              } 
+          />
         </Switch>
       </div>
     );

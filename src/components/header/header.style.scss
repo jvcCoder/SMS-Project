@@ -1,5 +1,5 @@
 .header {
-    height: 250px;
+    height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -7,17 +7,13 @@
     background-image: url('https://i.ibb.co/PW809MG/Design-sem-nome-1.png');
   
     .logo-container {
-      position: absolute;
       height: 100%;
-      width: 80px;
-      padding: 70px;
-      align-items: center;
-      justify-content: flex-start;
-    
+      width: 70px;
+      padding: 25px;
     }
   
     .options {
-      width: 100%;
+      width: 50%;
       height: 100%;
       display: flex;
       align-items: center;
@@ -27,7 +23,6 @@
       .option {
         padding: 10px 15px;
         cursor: pointer;
-        border: 40px snow solid;
         color: snow;
       }
     }

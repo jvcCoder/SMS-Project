@@ -14,7 +14,7 @@
     
     & .background-image {
       transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.45, 0.55, 0.95);
+      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
     &.content {
@@ -23,9 +23,11 @@
   }
 
   &.large {
-    height: 600px;
-    width: 600px;
-    
+    height: 500px;
+  }
+
+  &.large2 {
+    height: 350px;
   }
 
   &:first-child {
@@ -44,7 +46,7 @@
   }
 
   .content {
-    height: 100px;
+    height: 90px;
     padding: 0 25px;
     display: flex;
     flex-direction: column;
@@ -57,7 +59,7 @@
 
     .title {
       font-weight: bold;
-      margin-bottom: 6px;
+      margin: 0 6px 0;
       font-size: 22px;
       color: #4a4a4a;
     }
