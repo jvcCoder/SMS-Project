@@ -7,6 +7,6 @@ const CartDropdown = () => (
         <div className = 'cart-item' />
         <CustomButton> CHECKOUT </CustomButton>        
     </div>
-)
+);
 
 export default CartDropdown;

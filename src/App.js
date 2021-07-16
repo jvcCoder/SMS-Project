@@ -6,9 +6,9 @@ import "./App.css";
 
 import HomePage from "./pages/homepage/homepage.components";
 import RentPage from "./pages/rent/rent.components.jsx";
-import Header from "./components/header/header.components";
 import SignInPage from "./pages/sign-in/sign-in.components";
 import SignUpPage from "./pages/sign-up/sign-up.components";
+import Header from "./components/header/header.components";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
@@ -64,7 +64,7 @@ class App extends React.Component {
               ) : (
                 <SignUpPage />
               )
-              } 
+            } 
           />
         </Switch>
       </div>
@@ -73,11 +73,11 @@ class App extends React.Component {
 }
 
 const mapStateToProps = ({ user }) => ({
-  currentUser: user.correntUser,
+  currentUser: user.currentUser,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
