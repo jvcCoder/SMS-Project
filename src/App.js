@@ -8,6 +8,7 @@ import HomePage from "./pages/homepage/homepage.components";
 import RentPage from "./pages/rent/rent.components.jsx";
 import SignInPage from "./pages/sign-in/sign-in.components";
 import SignUpPage from "./pages/sign-up/sign-up.components";
+import ContactUsPage from "./pages/contact-us/contact-us.components";
 import Header from "./components/header/header.components";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -44,6 +45,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/rent' component={RentPage} />
+          <Route path='/contactus' component={ContactUsPage} />
           <Route
             exact
             path='/signin'

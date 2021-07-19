@@ -1,6 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import Axios from 'axios';
+import 'firebase/database';
+
 
 const config = {
   apiKey: 'AIzaSyCCqUaqUaSpRtLShd2Tyi5PuphF94YhzmQ',
@@ -13,6 +16,10 @@ const config = {
 };
 
 firebase.initializeApp(config);
+
+const db = firebase.firestore()
+
+export { Axios, db }
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if(!userAuth) return;
@@ -40,6 +47,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
