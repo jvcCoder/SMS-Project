@@ -8,7 +8,7 @@ const RentPreview = ({ title, items }) => (
     <div className='preview'>
       {items
         .filter((_item, idx) => idx < 2)
-        .map(item => (
+        .map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
     </div>

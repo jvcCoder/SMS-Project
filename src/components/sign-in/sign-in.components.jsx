@@ -1,7 +1,7 @@
 import React from "react";
 import FormInput from "../form-input/form-input.components";
 import CustomButton from "../custom-button/custom-button.components";
-import { auth, singInWithGoogle } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./sign-in.styles.scss";
 
@@ -21,14 +21,14 @@ class SignIn extends React.Component {
     const { email, password } = this.state;
 
     try {
-      await auth.SignInWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: '', password: '' });
     } catch (error) {
       console.log(error);
     }
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { value, name } = event.target;
 
     this.setState({ [name]: value });
@@ -60,7 +60,7 @@ class SignIn extends React.Component {
           />
           <div className='buttons'>
             <CustomButton type='submit'> Sign in </CustomButton>
-            <CustomButton onClick={singInWithGoogle} isGoogleSignIn>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
               Google Sign in
             </CustomButton>
           </div>
