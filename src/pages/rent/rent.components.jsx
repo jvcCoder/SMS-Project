@@ -2,6 +2,7 @@ import React from "react";
 import RENT_DATA from "./rent.data.js";
 import RentPreview from "../../components/rent-preview/rent-preview.component";
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import "./maps.styles.scss";
 
 class RentPage extends React.Component {
   constructor(props) {
@@ -13,28 +14,31 @@ class RentPage extends React.Component {
   }
 
   render() {
-    const mapStyles = {
-      width: '10vw',
-      height: '10vh',
-    }; 
+    const mapStyles ={
+      width: "40%",
+      height: "500px",
+    };
+
     const { collections } = this.state;
     return (
       <div className='rent-page'>
-        {collections.map(({ id, ...otherCollectionProps }) => (
-          <RentPreview key={id} {...otherCollectionProps} />
-        ))}
+        <div className='rent-scooter'>
+          {collections.map(({ id, ...otherCollectionProps }) => (
+            <RentPreview key={id} {...otherCollectionProps} />
+          ))}
+        </div>
         <div className='maps'>
-        <Map
-          google={this.props.google}
-          zoom={8}
-          style={mapStyles}
-          initialCenter={
-            {
-              lat: 53.350145,
-              lgn: -6.266157,
+          <Map
+            google={this.props.google}
+            zoom={7}
+            style={mapStyles}
+            initialCenter={
+              {
+                lat: 53.350145,
+                lgn: -6.266157,
+              }
             }
-          }
-        />
+          />
         </div>
       </div>
     );

@@ -21,10 +21,11 @@ const CollectionItem = ({ item, addItem }) => {
         <span className='price'>{price}</span>
       </div>
       <CustomButton onClick ={() => addItem(item)}> 
-        Add to cart 
+        Add item 
       </CustomButton>
     </div>
   );
+    
 };
 
 const mapDispatchToProps = dispatch => ({

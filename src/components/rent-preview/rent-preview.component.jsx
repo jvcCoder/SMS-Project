@@ -12,6 +12,10 @@ const RentPreview = ({ title, items }) => (
           <CollectionItem key={item.id} item={item} />
         ))}
     </div>
+    <div className='steps'> * Click on the image to add item to checkout </div>
+    <div className='steps1'>* Next, just click on the shop icon in the top right </div>
+    <div className='steps2'>* Go to checkout page and do the payment </div>
+    
   </div>
 );
 
